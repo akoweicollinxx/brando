@@ -3,7 +3,7 @@ import { openai } from "@/lib/openai";
 import { auth } from "@clerk/nextjs/server";
 
 function logoPrompt(brand_name: string, industry: string): string {
-  return `Create a professional, modern brand logo for a company called "${brand_name}"${industry ? ` in the ${industry} industry` : ""}. The logo must include: a unique, memorable icon or symbol that represents the brand, and the brand name "${brand_name}" in clean, bold typography below or beside the icon. Design requirements: flat 2D vector style, minimal and modern, strong visual identity. Background: pure solid white (#FFFFFF) — absolutely no shadows, no gradients, no textures, no decorative elements outside the logo mark. The logo must be perfectly centered on a white square canvas with generous padding around it.`;
+  return `Create a professional, modern brand logo for a company called "${brand_name}"${industry ? ` in the ${industry} industry` : ""}. The logo must include: a unique, memorable icon or symbol that represents the brand, and the brand name "${brand_name}" in clean, bold typography below or beside the icon. Design requirements: flat 2D vector style, minimal and modern, strong visual identity. Background: pure solid white — absolutely no shadows, no gradients, no textures, no decorative elements outside the logo mark. The logo must be perfectly centered on a white square canvas with generous padding around it.`;
 }
 
 export async function POST(request: NextRequest) {
@@ -29,8 +29,8 @@ export async function POST(request: NextRequest) {
       n: 1,
       size: "1024x1024",
       quality: "high",
-      background: "white",
-    } as Parameters<typeof openai.images.generate>[0]);
+      background: "opaque",
+    });
 
     const b64 = response.data?.[0]?.b64_json;
     if (!b64) return NextResponse.json({ error: "No image generated" }, { status: 500 });
