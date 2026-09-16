@@ -167,3 +167,30 @@ For more details, see https://clerk.com/err/auth-middleware
  POST /api/generate-brand 200 in 11.0s (next.js: 983ms, proxy.ts: 27ms, application-code: 10.0s)
  POST /api/brand-score 200 in 4.5s (next.js: 444ms, proxy.ts: 19ms, application-code: 4.0s)
  GET /dashboard 200 in 1116ms (next.js: 304ms, proxy.ts: 604ms, application-code: 208ms)
+ POST /api/generate-logo 200 in 32.5s (next.js: 538ms, proxy.ts: 22ms, application-code: 31.9s)
+✓ Compiled in 1709ms
+ POST /dashboard 404 in 6.0s (next.js: 374ms, proxy.ts: 5.4s, application-code: 213ms)
+  └─ ƒ invalidateCacheAction() in 18ms node_modules/@clerk/nextjs/dist/esm/app-router/server-actions.js
+[browser] ⨯ unhandledRejection: e: Resource not found
+    at id._baseFetch (https://wired-oriole-5657.clerk.accounts.dev/npm/@clerk/clerk-js@6/dist/clerk.browser.js:18:171)
+    at async ic.execute (https://wired-oriole-5657.clerk.accounts.dev/npm/@clerk/clerk-js@6/dist/clerk.browser.js:17:6812)
+    at async rT._baseMutate (https://wired-oriole-5657.clerk.accounts.dev/npm/@clerk/clerk-js@6/dist/clerk.browser.js:18:717)
+    at async rT._baseDelete (https://wired-oriole-5657.clerk.accounts.dev/npm/@clerk/clerk-js@6/dist/clerk.browser.js:18:1745)
+    at async signOut (https://wired-oriole-5657.clerk.accounts.dev/npm/@clerk/clerk-js@6/dist/clerk.browser.js:18:200236)
+    at async x (https://wired-oriole-5657.clerk.accounts.dev/npm/@clerk/ui@1.33.0/dist/ui-common_ui_4bef77_1.33.0.js:5:74034)
+ GET /sign-in?redirect_url=http%3A%2F%2Flocalhost%3A3001%2Fdashboard 200 in 5.2s (next.js: 104ms, proxy.ts: 4.5s, application-code: 532ms)
+[browser] Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/docs/deployments/overview (https://wired-oriole-5657.clerk.accounts.dev/npm/@clerk/clerk-js@6/dist/clerk.browser.js:12:7855)
+[browser] e: Resource not found
+    at id._baseFetch (https://wired-oriole-5657.clerk.accounts.dev/npm/@clerk/clerk-js@6/dist/clerk.browser.js:18:171)
+    at async ic.execute (https://wired-oriole-5657.clerk.accounts.dev/npm/@clerk/clerk-js@6/dist/clerk.browser.js:17:6812)
+    at async rT._baseGet (https://wired-oriole-5657.clerk.accounts.dev/npm/@clerk/clerk-js@6/dist/clerk.browser.js:18:497)
+    at async Promise.all (index 1)
+    at async #eY (https://wired-oriole-5657.clerk.accounts.dev/npm/@clerk/clerk-js@6/dist/clerk.browser.js:18:242782)
+    at async an.load (https://wired-oriole-5657.clerk.accounts.dev/npm/@clerk/clerk-js@6/dist/clerk.browser.js:18:198475)
+    at async _IsomorphicClerk.getEntryChunks (http://localhost:3001/_next/static/chunks/node_modules_09-kl9f._.js:12754:17) 
+  Reload env: .env.local
+✓ Compiled in 2.8s
+⚠ Fast Refresh had to perform a full reload when ./node_modules/@clerk/nextjs/dist/esm/server/constants.js changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /sign-in?redirect_url=http%3A%2F%2Flocalhost%3A3001%2Fdashboard 200 in 3.5s (next.js: 1207ms, proxy.ts: 1201ms, application-code: 1103ms)
+ GET /sign-in?redirect_url=http%3A%2F%2Flocalhost%3A3001%2Fdashboard 200 in 993ms (next.js: 83ms, proxy.ts: 496ms, application-code: 414ms)
+ GET /sign-in?redirect_url=http%3A%2F%2Flocalhost%3A3001%2Fdashboard 200 in 266ms (next.js: 24ms, proxy.ts: 42ms, application-code: 201ms)
