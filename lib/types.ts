@@ -122,6 +122,88 @@ export interface LaunchKit {
   };
 }
 
+// ─── Landing Pages ───────────────────────────────────────────────────────────
+
+export interface LandingPageContent {
+  brand: { name: string; primary_color: string; accent_color: string };
+  hero: { headline: string; subheadline: string; cta_text: string; cta_secondary?: string };
+  features: { title: string; description: string }[];
+  social_proof: string[];
+  testimonials: { name: string; role: string; text: string }[];
+  cta: { headline: string; subheadline: string; button_text: string };
+  faq: { question: string; answer: string }[];
+}
+
+export interface LandingPage {
+  id: string;
+  project_id: string;
+  slug: string;
+  content: LandingPageContent;
+  published: boolean;
+  custom_domain: string | null;
+  created_at: string;
+  updated_at: string;
+}
+
+// ─── Leads / CRM ─────────────────────────────────────────────────────────────
+
+export type LeadStatus = "new" | "contacted" | "qualified" | "converted" | "lost";
+
+export interface Lead {
+  id: string;
+  project_id: string;
+  name: string | null;
+  email: string;
+  phone: string | null;
+  source: string;
+  status: LeadStatus;
+  notes: string | null;
+  created_at: string;
+}
+
+// ─── Email Automation ────────────────────────────────────────────────────────
+
+export interface SequenceEmail {
+  subject: string;
+  body: string;
+  delay_hours: number;
+}
+
+export interface EmailSequence {
+  id: string;
+  project_id: string;
+  emails: SequenceEmail[];
+  active: boolean;
+  created_at: string;
+}
+
+// ─── Content Posts ────────────────────────────────────────────────────────────
+
+export type PostStatus = "draft" | "scheduled" | "posted";
+
+export interface ContentPost {
+  id: string;
+  project_id: string;
+  platform: string;
+  content: string;
+  scheduled_at: string | null;
+  status: PostStatus;
+  created_at: string;
+}
+
+// ─── Traction ─────────────────────────────────────────────────────────────────
+
+export interface TractionMetric {
+  id: string;
+  project_id: string;
+  traffic: number;
+  leads: number;
+  conversion_rate: number;
+  followers: number;
+  revenue: number;
+  created_at: string;
+}
+
 // ─── Showcase ────────────────────────────────────────────────────────────────
 
 export interface ShowcaseBrand {

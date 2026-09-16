@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Zap, ArrowRight, Check } from "lucide-react";
+import { Zap, ArrowRight, Check, Palette, Users, Rocket, Sparkles, Crown } from "lucide-react";
 
 const features = [
   "Logo & Brand Identity",
@@ -33,16 +33,6 @@ export default function Home() {
     <main className="bg-background text-foreground">
       {/* HERO */}
       <section className="min-h-screen flex flex-col justify-center items-center text-center px-6 pt-20">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 dark:bg-white/10 text-xs font-semibold text-gray-600 dark:text-white/70 mb-6"
-        >
-          <Zap className="w-3.5 h-3.5" />
-          AI-powered business launch system
-        </motion.div>
-
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -167,15 +157,24 @@ export default function Home() {
           </p>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { label: "Brand Colors & Fonts", sub: "Curated palette + typography" },
-              { label: "Competitor Analysis", sub: "3 real competitors + gaps" },
-              { label: "Full Launch Plan", sub: "Week-by-week action steps" },
+              { label: "Brand Colors & Fonts", sub: "Curated palette + typography", Icon: Palette },
+              { label: "Competitor Analysis", sub: "3 real competitors + gaps", Icon: Users },
+              { label: "Full Launch Plan", sub: "Week-by-week action steps", Icon: Rocket },
             ].map((item, i) => (
-              <div key={i} className="p-8 bg-white dark:bg-card rounded-2xl shadow-sm border border-gray-100 dark:border-white/8">
-                <div className="w-12 h-12 bg-black dark:bg-white rounded-2xl mx-auto mb-4" />
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="p-8 bg-white dark:bg-card rounded-2xl shadow-sm border border-gray-100 dark:border-white/8"
+              >
+                <div className="w-12 h-12 bg-black dark:bg-white rounded-2xl mx-auto mb-4 flex items-center justify-center">
+                  <item.Icon className="w-5 h-5 text-white dark:text-black" />
+                </div>
                 <h3 className="font-semibold text-gray-900 dark:text-white">{item.label}</h3>
                 <p className="text-sm text-gray-500 dark:text-white/50 mt-1">{item.sub}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -190,11 +189,12 @@ export default function Home() {
           <p className="text-gray-500 dark:text-white/50 mb-8">Start free. Upgrade when you need more.</p>
           <div className="grid md:grid-cols-3 gap-4 mb-8">
             {[
-              { plan: "Free", price: "£0", desc: "2 logo generations" },
-              { plan: "Pro", price: "£19/mo", desc: "Unlimited brands" },
-              { plan: "Premium", price: "£49/mo", desc: "Advanced everything" },
+              { plan: "Free", price: "£0", desc: "2 logo generations", Icon: Sparkles },
+              { plan: "Pro", price: "£19/mo", desc: "Unlimited brands", Icon: Zap },
+              { plan: "Premium", price: "£49/mo", desc: "Advanced everything", Icon: Crown },
             ].map((p, i) => (
               <div key={i} className="p-6 border border-gray-200 dark:border-white/8 rounded-2xl bg-white dark:bg-card">
+                <p.Icon className="w-4 h-4 text-gray-400 dark:text-white/40 mb-2" />
                 <p className="text-sm font-semibold text-gray-500 dark:text-white/50">{p.plan}</p>
                 <p className="text-2xl font-bold mt-1 text-gray-900 dark:text-white">{p.price}</p>
                 <p className="text-sm text-gray-500 dark:text-white/40 mt-1">{p.desc}</p>

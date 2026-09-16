@@ -1,0 +1,151 @@
+
+> brando@0.1.0 dev
+> next dev
+
+⚠ Port 3000 is in use by process 28036, using available port 3001 instead.
+▲ Next.js 16.2.3 (Turbopack)
+- Local:         http://localhost:3001
+- Network:       http://192.168.1.167:3001
+- Environments: .env.local
+✓ Ready in 1274ms
+
+⨯ Error: Clerk: Handshake token verification failed: Unable to find a signing key in JWKS that matches the kid='ins_3E3h3bo5AffZ4pOuZGrYxxfZv7Z' of the provided session token. Please make sure that the __session cookie or the HTTP authorization header contain a Clerk-generated session JWT. The following kid is available: ins_3JQ7L1jS8QOCgoIADQrLXNFZUF1 Go to your Dashboard and validate your secret and public keys are correct. Contact support@clerk.com if the issue persists. (reason=jwk-kid-mismatch, token-carrier=undefined).
+    at ignore-listed frames
+○ Compiling /_error ...
+ GET /?__clerk_handshake=eyJhbGciOiJSUzI1NiIsImNhdCI6ImNsX0I3ZDRQRDExMUFBQSIsImtpZCI6Imluc18zRTNoM2JvNUFmZlo0cE91WkdyWXh4Zlp2N1oiLCJ0eXAiOiJKV1QifQ.eyJoYW5kc2hha2UiOlsiX19jbGllbnRfdWF0PTsgUGF0aD0vOyBFeHBpcmVzPVRodSwgMDEgSmFuIDE5NzAgMDA6MDA6MDAgR01UOyBTZWN1cmU7IFNhbWVTaXRlPU5vbmUiLCJfX2NsaWVudF91YXQ9MDsgUGF0aD0vOyBEb21haW49bG9jYWxob3N0OyBNYXgtQWdlPTMxNTM2MDAwMDsgU2VjdXJlOyBTYW1lU2l0ZT1Ob25lIiwiX19jbGllbnRfdWF0XzhvS25sOVZiPTA7IFBhdGg9LzsgRG9tYWluPWxvY2FsaG9zdDsgTWF4LUFnZT0zMTUzNjAwMDA7IFNlY3VyZTsgU2FtZVNpdGU9Tm9uZSIsIl9fc2Vzc2lvbl84b0tubDlWYj07IFBhdGg9LzsgRXhwaXJlcz1UaHUsIDAxIEphbiAxOTcwIDAwOjAwOjAwIEdNVDsgU2VjdXJlOyBTYW1lU2l0ZT1Ob25lIiwiX19jbGVya19kYl9qd3Q9ZHZiXzNKUGs3S2hGWFRxTTdJbTZyZnJ5dmxYbmZuUTsgUGF0aD0vOyBFeHBpcmVzPVRodSwgMTYgU2VwIDIwMjcgMTc6NDQ6NTkgR01UOyBTZWN1cmU7IFNhbWVTaXRlPU5vbmUiLCJfX2NsZXJrX2RiX2p3dF84b0tubDlWYj1kdmJfM0pQazdLaEZYVHFNN0ltNnJmcnl2bFhuZm5ROyBQYXRoPS87IEV4cGlyZXM9VGh1LCAxNiBTZXAgMjAyNyAxNzo0NDo1OSBHTVQ7IFNlY3VyZTsgU2FtZVNpdGU9Tm9uZSJdfQ.rsYOy1vMWJsaUAtVDhuZRVoKbby3afiiXefiChhWty_I_5Zg3dkld0liBefquq3aMivB8KYuwsv5lAM74BUnGnV8SQq6KputTR9BnZMvT8VjphtX539IRmsOIh2ye-JJmCqssOKcDJ0jg2Mgn_IO6BBgjfIW6YReJ2N-5cS1OMUnDBA2SS1XpAcMBpzsL5JKuXD267O5SYbgz2INkvxeyaKj0unlcPZ7arVyrnDzOtmdQF3AJEustIVU7RfltdoCw7CaB1PPc4HFhY4RUZAaWd5QLJlP5-5kG8C4zVpnghbnlYBBLCCtNNc3Y_7OKXs3uDwtmDOR7NBSt7KRVAL2mw 404 in 6.3s (next.js: -610974µs, proxy.ts: 6.2s, application-code: 632ms)
+[browser] Uncaught Error: Clerk: Handshake token verification failed: Unable to find a signing key in JWKS that matches the kid='ins_3E3h3bo5AffZ4pOuZGrYxxfZv7Z' of the provided session token. Please make sure that the __session cookie or the HTTP authorization header contain a Clerk-generated session JWT. The following kid is available: ins_3JQ7L1jS8QOCgoIADQrLXNFZUF1 Go to your Dashboard and validate your secret and public keys are correct. Contact support@clerk.com if the issue persists. (reason=jwk-kid-mismatch, token-carrier=undefined).
+○ Compiling /_not-found/page ...
+⨯ Error: Clerk: auth() was called but Clerk can't detect usage of clerkMiddleware(). Please ensure the following:
+- Your middleware or proxy file exists at ./middleware.(ts|js) or proxy.(ts|js)
+- clerkMiddleware() is used in your Next.js middleware or proxy file.
+- Your middleware or proxy matcher is configured to match this route or page.
+- If you are using the src directory, make sure the middleware or proxy file is inside of it.
+
+For more details, see https://clerk.com/err/auth-middleware
+
+    at ignore-listed frames {
+  digest: '2015998502'
+}
+⨯ Error: Clerk: auth() was called but Clerk can't detect usage of clerkMiddleware(). Please ensure the following:
+- Your middleware or proxy file exists at ./middleware.(ts|js) or proxy.(ts|js)
+- clerkMiddleware() is used in your Next.js middleware or proxy file.
+- Your middleware or proxy matcher is configured to match this route or page.
+- If you are using the src directory, make sure the middleware or proxy file is inside of it.
+
+For more details, see https://clerk.com/err/auth-middleware
+
+    at ignore-listed frames {
+  digest: '2015998502'
+}
+ GET / 200 in 2.8s (next.js: 2.4s, proxy.ts: 19ms, application-code: 420ms)
+[browser] Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/docs/deployments/overview (https://wired-oriole-5657.clerk.accounts.dev/npm/@clerk/clerk-js@6/dist/clerk.browser.js:12:7855)
+ GET /sign-up 200 in 2.0s (next.js: 1970ms, proxy.ts: 19ms, application-code: 60ms)
+ GET /sign-up?redirect_url=http%3A%2F%2Flocalhost%3A3001%2F 200 in 82ms (next.js: 16ms, proxy.ts: 23ms, application-code: 42ms)
+ GET /sign-up/SignUp_clerk_catchall_check_1789582285078 200 in 238ms (next.js: 21ms, proxy.ts: 28ms, application-code: 188ms)
+ GET /sign-up 200 in 100ms (next.js: 22ms, proxy.ts: 25ms, application-code: 53ms)
+ GET /sign-up?redirect_url=http%3A%2F%2Flocalhost%3A3001%2F 200 in 395ms (next.js: 176ms, proxy.ts: 37ms, application-code: 181ms)
+ GET /sign-up/SignUp_clerk_catchall_check_1789582382915 200 in 408ms (next.js: 27ms, proxy.ts: 32ms, application-code: 349ms)
+ GET /pricing 200 in 1085ms (next.js: 1022ms, proxy.ts: 16ms, application-code: 48ms)
+ GET /sign-up 200 in 88ms (next.js: 20ms, proxy.ts: 19ms, application-code: 49ms)
+ GET /sign-up?redirect_url=http%3A%2F%2Flocalhost%3A3001%2F 200 in 235ms (next.js: 20ms, proxy.ts: 19ms, application-code: 196ms)
+ GET /sign-up/SignUp_clerk_catchall_check_1789582403401 200 in 241ms (next.js: 65ms, proxy.ts: 21ms, application-code: 155ms)
+ POST /sign-up/verify-email-address?redirect_url=http%3A%2F%2Flocalhost%3A3001%2F 200 in 122ms (next.js: 29ms, proxy.ts: 15ms, application-code: 78ms)
+  └─ ƒ invalidateCacheAction() in 6ms node_modules/@clerk/nextjs/dist/esm/app-router/server-actions.js
+ GET /sign-up/verify-email-address/SignUp_clerk_catchall_check_1789582576583 200 in 132ms (next.js: 11ms, proxy.ts: 16ms, application-code: 105ms)
+ GET / 200 in 257ms (next.js: 7ms, proxy.ts: 222ms, application-code: 28ms)
+ GET / 200 in 91ms (next.js: 4ms, proxy.ts: 30ms, application-code: 57ms)
+ GET /dashboard 200 in 1436ms (next.js: 1352ms, proxy.ts: 26ms, application-code: 59ms)
+ GET /dashboard 200 in 56ms (next.js: 6ms, proxy.ts: 15ms, application-code: 35ms)
+ GET /dashboard 200 in 67ms (next.js: 7ms, proxy.ts: 21ms, application-code: 40ms)
+✓ Compiled in 327ms
+ GET /dashboard 200 in 1761ms (next.js: 500ms, proxy.ts: 790ms, application-code: 471ms)
+ GET /dashboard 200 in 258ms (next.js: 10ms, proxy.ts: 31ms, application-code: 217ms)
+ GET /dashboard 200 in 670ms (next.js: 167ms, proxy.ts: 370ms, application-code: 133ms)
+ POST /dashboard 200 in 90ms (next.js: 6ms, proxy.ts: 19ms, application-code: 65ms)
+  └─ ƒ invalidateCacheAction() in 5ms node_modules/@clerk/nextjs/dist/esm/app-router/server-actions.js
+ GET / 200 in 73ms (next.js: 27ms, proxy.ts: 14ms, application-code: 32ms)
+ GET / 200 in 66ms (next.js: 4ms, proxy.ts: 26ms, application-code: 36ms)
+ GET /sign-up 200 in 389ms (next.js: 229ms, proxy.ts: 22ms, application-code: 138ms)
+ GET /sign-up?redirect_url=http%3A%2F%2Flocalhost%3A3001%2F 200 in 589ms (next.js: 24ms, proxy.ts: 23ms, application-code: 542ms)
+ GET /sign-up/SignUp_clerk_catchall_check_1789583968827 200 in 601ms (next.js: 66ms, proxy.ts: 24ms, application-code: 510ms)
+ POST /sign-up/verify-email-address?redirect_url=http%3A%2F%2Flocalhost%3A3001%2F 200 in 115ms (next.js: 21ms, proxy.ts: 12ms, application-code: 83ms)
+  └─ ƒ invalidateCacheAction() in 17ms node_modules/@clerk/nextjs/dist/esm/app-router/server-actions.js
+ GET /sign-up/verify-email-address/SignUp_clerk_catchall_check_1789584050195 200 in 142ms (next.js: 10ms, proxy.ts: 15ms, application-code: 117ms)
+ GET / 200 in 76ms (next.js: 6ms, proxy.ts: 30ms, application-code: 40ms)
+ GET / 200 in 103ms (next.js: 10ms, proxy.ts: 24ms, application-code: 69ms)
+ GET /dashboard 200 in 54ms (next.js: 5ms, proxy.ts: 17ms, application-code: 31ms)
+ POST / 200 in 104ms (next.js: 6ms, proxy.ts: 21ms, application-code: 77ms)
+  └─ ƒ invalidateCacheAction() in 8ms node_modules/@clerk/nextjs/dist/esm/app-router/server-actions.js
+ GET / 200 in 27ms (next.js: 6ms, proxy.ts: 10ms, application-code: 11ms)
+ GET / 200 in 46ms (next.js: 5ms, proxy.ts: 11ms, application-code: 30ms)
+ GET / 200 in 80ms (next.js: 6ms, proxy.ts: 20ms, application-code: 54ms)
+ GET /sign-in?redirect_url=http%3A%2F%2Flocalhost%3A3001%2Fdashboard 200 in 1744ms (next.js: 1691ms, proxy.ts: 7ms, application-code: 47ms)
+ GET /sign-in/SignIn_clerk_catchall_check_1789584136158 200 in 194ms (next.js: 23ms, proxy.ts: 26ms, application-code: 145ms)
+✓ Compiled in 127ms
+ GET /sign-in?redirect_url=http%3A%2F%2Flocalhost%3A3001%2Fdashboard 200 in 932ms (next.js: 319ms, proxy.ts: 254ms, application-code: 358ms)
+ GET /sign-in?redirect_url=http%3A%2F%2Flocalhost%3A3001%2Fdashboard 200 in 163ms (next.js: 20ms, proxy.ts: 22ms, application-code: 120ms)
+✓ Compiled in 384ms
+ GET /sign-in?redirect_url=http%3A%2F%2Flocalhost%3A3001%2Fdashboard 200 in 1422ms (next.js: 476ms, proxy.ts: 383ms, application-code: 563ms)
+ GET /sign-in?redirect_url=http%3A%2F%2Flocalhost%3A3001%2Fdashboard 200 in 413ms (next.js: 89ms, proxy.ts: 41ms, application-code: 283ms)
+ GET /sign-in?redirect_url=http%3A%2F%2Flocalhost%3A3001%2Fdashboard 200 in 769ms (next.js: 230ms, proxy.ts: 227ms, application-code: 311ms)
+ GET / 200 in 1936ms (next.js: 113ms, proxy.ts: 38ms, application-code: 1785ms)
+[browser] Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/docs/deployments/overview (https://wired-oriole-5657.clerk.accounts.dev/npm/@clerk/clerk-js@6/dist/clerk.browser.js:12:7855)
+ GET /sign-up 200 in 1057ms (next.js: 667ms, proxy.ts: 31ms, application-code: 359ms)
+ GET /sign-up?redirect_url=http%3A%2F%2Flocalhost%3A3001%2F 200 in 702ms (next.js: 374ms, proxy.ts: 113ms, application-code: 216ms)
+ GET /sign-up/SignUp_clerk_catchall_check_1789584328075 200 in 1886ms (next.js: 87ms, proxy.ts: 33ms, application-code: 1767ms)
+ POST /sign-up/verify-email-address?redirect_url=http%3A%2F%2Flocalhost%3A3001%2F 200 in 158ms (next.js: 28ms, proxy.ts: 30ms, application-code: 100ms)
+  └─ ƒ invalidateCacheAction() in 7ms node_modules/@clerk/nextjs/dist/esm/app-router/server-actions.js
+ GET /sign-up/verify-email-address/SignUp_clerk_catchall_check_1789584388155 200 in 191ms (next.js: 14ms, proxy.ts: 23ms, application-code: 154ms)
+ GET /dashboard 200 in 312ms (next.js: 46ms, proxy.ts: 209ms, application-code: 57ms)
+ GET /dashboard 200 in 181ms (next.js: 11ms, proxy.ts: 34ms, application-code: 135ms)
+ GET /dashboard/projects 200 in 1982ms (next.js: 1905ms, proxy.ts: 18ms, application-code: 59ms)
+[projects GET] {
+  message: 'TypeError: fetch failed',
+  details: 'TypeError: fetch failed\n' +
+    '\n' +
+    'Caused by: Error: getaddrinfo ENOTFOUND voxatttkomsoqoifmhna.supabase.co (ENOTFOUND)\n' +
+    'Error: getaddrinfo ENOTFOUND voxatttkomsoqoifmhna.supabase.co\n' +
+    '    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:122:26)\n' +
+    '    at GetAddrInfoReqWrap.callbackTrampoline (node:internal/async_hooks:130:17)',
+  hint: '',
+  code: ''
+}
+ GET /api/projects 500 in 8.8s (next.js: 1605ms, proxy.ts: 46ms, application-code: 7.2s)
+[projects GET] {
+  message: 'TypeError: fetch failed',
+  details: 'TypeError: fetch failed\n' +
+    '\n' +
+    'Caused by: Error: getaddrinfo ENOTFOUND voxatttkomsoqoifmhna.supabase.co (ENOTFOUND)\n' +
+    'Error: getaddrinfo ENOTFOUND voxatttkomsoqoifmhna.supabase.co\n' +
+    '    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:122:26)\n' +
+    '    at GetAddrInfoReqWrap.callbackTrampoline (node:internal/async_hooks:130:17)',
+  hint: '',
+  code: ''
+}
+ GET /api/projects 500 in 7.1s (next.js: 4ms, proxy.ts: 18ms, application-code: 7.1s)
+ GET /dashboard 200 in 1961ms (next.js: 18ms, proxy.ts: 1860ms, application-code: 83ms)
+ GET /dashboard/projects 200 in 79ms (next.js: 12ms, proxy.ts: 16ms, application-code: 51ms)
+[projects GET] {
+  message: 'TypeError: fetch failed',
+  details: 'TypeError: fetch failed\n' +
+    '\n' +
+    'Caused by: Error: getaddrinfo ENOTFOUND voxatttkomsoqoifmhna.supabase.co (ENOTFOUND)\n' +
+    'Error: getaddrinfo ENOTFOUND voxatttkomsoqoifmhna.supabase.co\n' +
+    '    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:122:26)\n' +
+    '    at GetAddrInfoReqWrap.callbackTrampoline (node:internal/async_hooks:130:17)',
+  hint: '',
+  code: ''
+}
+ GET /api/projects 500 in 8.0s (next.js: 9ms, proxy.ts: 22ms, application-code: 7.9s)
+[projects GET] {
+  message: 'TypeError: fetch failed',
+  details: 'TypeError: fetch failed\n' +
+    '\n' +
+    'Caused by: Error: getaddrinfo ENOTFOUND voxatttkomsoqoifmhna.supabase.co (ENOTFOUND)\n' +
+    'Error: getaddrinfo ENOTFOUND voxatttkomsoqoifmhna.supabase.co\n' +
+    '    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:122:26)\n' +
+    '    at GetAddrInfoReqWrap.callbackTrampoline (node:internal/async_hooks:130:17)',
+  hint: '',
+  code: ''
+}
+ GET /api/projects 500 in 7.2s (next.js: 5ms, proxy.ts: 20ms, application-code: 7.1s)

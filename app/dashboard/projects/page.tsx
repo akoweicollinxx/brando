@@ -36,15 +36,21 @@ export default function ProjectsPage() {
   const [deletingId, setDeletingId] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
+  function loadProjects() {
+    setIsLoading(true);
+    setError(null);
     fetch("/api/projects")
       .then((r) => r.json())
       .then((json) => {
         if (json.success) setProjects(json.data);
-        else setError(json.error);
+        else setError("We couldn't load your projects right now.");
       })
-      .catch(() => setError("Failed to load projects"))
+      .catch(() => setError("We couldn't load your projects right now."))
       .finally(() => setIsLoading(false));
+  }
+
+  useEffect(() => {
+    loadProjects();
   }, []);
 
   async function handleDelete(id: string) {
@@ -73,7 +79,7 @@ export default function ProjectsPage() {
           <FolderOpen className="w-5 h-5 text-gray-400 dark:text-white/30" />
           <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Projects</h1>
         </div>
-        <p className="text-gray-500 dark:text-white/45 ml-7">All your saved brand kits, synced from Supabase.</p>
+        <p className="text-gray-500 dark:text-white/45 ml-7">All your saved brand kits, in one place.</p>
       </div>
 
       {isLoading && (
@@ -84,8 +90,13 @@ export default function ProjectsPage() {
 
       {error && !isLoading && (
         <div className="flex flex-col items-center justify-center py-24 text-center">
-          <p className="text-sm text-red-500 dark:text-red-400 mb-2">{error}</p>
-          <p className="text-xs text-gray-400 dark:text-white/30">Check that your Supabase environment variables are set.</p>
+          <p className="text-sm text-gray-500 dark:text-white/45 mb-4">{error}</p>
+          <button
+            onClick={loadProjects}
+            className="px-4 py-2 bg-black dark:bg-white text-white dark:text-black rounded-xl text-sm font-semibold hover:bg-gray-800 dark:hover:bg-gray-100 transition"
+          >
+            Try again
+          </button>
         </div>
       )}
 
