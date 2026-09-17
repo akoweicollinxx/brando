@@ -225,3 +225,5 @@ For more details, see https://clerk.com/err/auth-middleware
  GET /sign-up 200 in 107ms (next.js: 21ms, proxy.ts: 29ms, application-code: 57ms)
  GET /sign-up?redirect_url=http%3A%2F%2Flocalhost%3A3001%2Fsign-in%3Fredirect_url%3Dhttp%253A%252F%252Flocalhost%253A3001%252Fdashboard 200 in 328ms (next.js: 35ms, proxy.ts: 36ms, application-code: 256ms)
  GET /sign-up/SignUp_clerk_catchall_check_1789597447322 200 in 328ms (next.js: 101ms, proxy.ts: 35ms, application-code: 192ms)
+ GET / 200 in 1404ms (next.js: 171ms, proxy.ts: 416ms, application-code: 817ms)
+[browser] Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/docs/deployments/overview (https://talented-kitten-688.clerk.accounts.dev/npm/@clerk/clerk-js@6/dist/clerk.browser.js:12:7855)
