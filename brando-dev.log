@@ -237,3 +237,20 @@ For more details, see https://clerk.com/err/auth-middleware
 [browser] Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/docs/deployments/overview (https://talented-kitten-688.clerk.accounts.dev/npm/@clerk/clerk-js@6/dist/clerk.browser.js:12:7855)
  GET / 200 in 2.2s (next.js: 355ms, proxy.ts: 1725ms, application-code: 170ms)
  GET / 200 in 549ms (next.js: 199ms, proxy.ts: 195ms, application-code: 155ms)
+✓ Compiled in 1422ms
+ GET / 200 in 2.8s (next.js: 718ms, proxy.ts: 824ms, application-code: 1239ms)
+ GET / 200 in 1985ms (next.js: 21ms, proxy.ts: 29ms, application-code: 1935ms)
+ GET / 200 in 1869ms (next.js: 114ms, proxy.ts: 85ms, application-code: 1671ms)
+ GET / 200 in 1876ms (next.js: 400ms, proxy.ts: 106ms, application-code: 1370ms)
+ GET / 200 in 1865ms (next.js: 1329ms, proxy.ts: 109ms, application-code: 426ms)
+ GET / 200 in 1875ms (next.js: 921ms, proxy.ts: 107ms, application-code: 847ms)
+ GET / 200 in 1746ms (next.js: 19ms, proxy.ts: 1229ms, application-code: 498ms)
+ GET / 200 in 777ms (next.js: 60ms, proxy.ts: 76ms, application-code: 641ms)
+ GET / 200 in 674ms (next.js: 26ms, proxy.ts: 269ms, application-code: 379ms)
+ GET / 200 in 522ms (next.js: 199ms, proxy.ts: 118ms, application-code: 205ms)
+⨯ ReferenceError: window is not defined
+    at ignore-listed frames {
+  digest: '1562558402'
+}
+ GET / 500 in 1364ms (next.js: 259ms, proxy.ts: 288ms, application-code: 817ms)
+✓ Compiled in 543ms
