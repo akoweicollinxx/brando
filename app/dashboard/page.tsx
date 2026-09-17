@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
-import { useAuth } from "@clerk/nextjs";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Sparkles,
@@ -20,8 +19,6 @@ import {
   Palette,
   Star,
   BarChart2,
-  ArrowRight,
-  Share2,
   Monitor,
   Users,
   X,
@@ -122,8 +119,6 @@ type TabId = typeof TABS[number]["id"];
 
 export default function DashboardPage() {
   const router = useRouter();
-  const { has, isLoaded } = useAuth();
-  const isPremium = isLoaded ? (has?.({ plan: "premium" }) ?? false) : false;
 
   // Form state
   const [brandName, setBrandName] = useState("");
@@ -146,7 +141,6 @@ export default function DashboardPage() {
 
   // UI
   const [activeTab,     setActiveTab]     = useState<TabId>("overview");
-  const [published,     setPublished]     = useState(false);
   const [showWebModal,  setShowWebModal]  = useState(false);
   const [webCopied,     setWebCopied]     = useState(false);
 
@@ -178,7 +172,6 @@ export default function DashboardPage() {
     setProjectId(null);
     setScore(null);
     setLogoUrl(null);
-    setPublished(false);
     setActiveTab("overview");
     try {
       const res  = await fetch("/api/generate-brand", {
@@ -232,10 +225,6 @@ export default function DashboardPage() {
 
   function handleLaunch() {
     if (!output) return;
-    if (!isPremium) {
-      router.push("/dashboard/billing");
-      return;
-    }
     sessionStorage.setItem("brando_brand_name", brandName);
     sessionStorage.setItem("brando_industry", industry);
     sessionStorage.setItem("brando_output", JSON.stringify(output));
@@ -243,29 +232,9 @@ export default function DashboardPage() {
     router.push("/dashboard/launch");
   }
 
-  function handlePublish() {
-    if (!output) return;
-    const entry = {
-      slug: brandName.toLowerCase().replace(/\s+/g, "-") + "-" + Date.now(),
-      name: brandName,
-      tagline: output.brand_kit.taglines[0] || "",
-      industry: industry || "General",
-      score: score?.overall || 0,
-      colors: output.brand_kit.colors.slice(0, 3).map(c => c.hex),
-      votes: 0,
-      brand_story: output.brand_kit.brand_story || "",
-      mission: output.brand_kit.mission || "",
-      published_at: new Date().toISOString(),
-      brand_output: output,
-    };
-    const existing = JSON.parse(localStorage.getItem("brando_showcase") || "[]");
-    localStorage.setItem("brando_showcase", JSON.stringify([entry, ...existing]));
-    setPublished(true);
-  }
-
   function handleReset() {
     setOutput(null); setBrandName(""); setIndustry(""); setAudience("");
-    setScore(null); setLogoUrl(null); setProjectId(null); setPublished(false);
+    setScore(null); setLogoUrl(null); setProjectId(null);
   }
 
   async function handleCopyWebPrompt() {
@@ -403,16 +372,7 @@ export default function DashboardPage() {
                   >
                     <Rocket className="w-3.5 h-3.5" />
                     Launch Mode
-                    {isPremium ? <ArrowRight className="w-3 h-3" /> : <Lock className="w-3 h-3 opacity-50" />}
-                  </button>
-
-                  {/* Publish */}
-                  <button
-                    onClick={handlePublish}
-                    disabled={published}
-                    className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl border border-white/20 hover:border-white/40 hover:bg-white/10 text-white/80 hover:text-white text-xs font-medium transition disabled:opacity-50"
-                  >
-                    {published ? <><Check className="w-3.5 h-3.5 text-emerald-400" /> Published</> : <><Share2 className="w-3.5 h-3.5" /> Showcase</>}
+                    <Lock className="w-3 h-3 opacity-60" />
                   </button>
 
                   {/* Reset */}
@@ -577,7 +537,7 @@ export default function DashboardPage() {
                             <Star className="w-3.5 h-3.5" /> Score Brand
                           </button>
                           <button onClick={handleLaunch} className="flex items-center gap-1.5 px-3.5 py-2 border border-gray-200 dark:border-white/15 text-gray-700 dark:text-white/70 rounded-xl text-xs font-semibold hover:border-gray-400 dark:hover:border-white/30 transition">
-                            <Rocket className="w-3.5 h-3.5" /> Launch Mode
+                            <Rocket className="w-3.5 h-3.5" /> Launch Mode <Lock className="w-3 h-3 opacity-60" />
                           </button>
                         </div>
                       </div>
@@ -681,7 +641,7 @@ export default function DashboardPage() {
                         <p className="text-white/50 text-xs mt-0.5">Launch Mode generates landing page copy, social posts, outreach templates, and email sequences.</p>
                       </div>
                       <button onClick={handleLaunch} className="flex items-center gap-2 px-4 py-2.5 bg-white text-black rounded-xl text-sm font-semibold hover:bg-gray-100 transition shrink-0">
-                        <Rocket className="w-4 h-4" /> Launch Mode
+                        <Rocket className="w-4 h-4" /> Launch Mode <Lock className="w-3.5 h-3.5 opacity-60" />
                       </button>
                     </div>
                   </div>

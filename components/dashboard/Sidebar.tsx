@@ -1,11 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
-import { useAuth } from "@clerk/nextjs";
+import { usePathname } from "next/navigation";
 import {
   Sparkles, FolderOpen, Rocket, Globe, Settings,
-  Zap, Lock, CreditCard, Globe2, Users, FileText,
+  Zap, Lock, Globe2, Users, FileText,
   TrendingUp, Mail, X,
 } from "lucide-react";
 import { UserButton } from "@clerk/nextjs";
@@ -16,7 +15,7 @@ type NavItem = {
   label: string;
   icon: React.ElementType;
   exact?: boolean;
-  premium?: boolean;
+  comingSoon?: boolean;
 };
 
 const NAV_SECTIONS: { label: string; items: NavItem[] }[] = [
@@ -30,8 +29,8 @@ const NAV_SECTIONS: { label: string; items: NavItem[] }[] = [
   {
     label: "Launch",
     items: [
-      { href: "/dashboard/landing-pages", label: "Landing Pages", icon: Globe2           },
-      { href: "/dashboard/launch",        label: "Launch Mode",   icon: Rocket, premium: true },
+      { href: "/dashboard/landing-pages", label: "Landing Pages", icon: Globe2                     },
+      { href: "/dashboard/launch",        label: "Launch Mode",   icon: Rocket, comingSoon: true },
     ],
   },
   {
@@ -58,22 +57,14 @@ export default function Sidebar({
   open?: boolean;
   onClose?: () => void;
 }) {
-  const pathname  = usePathname();
-  const router    = useRouter();
-  const { has, isLoaded } = useAuth();
-
-  const isPremium = isLoaded ? (has?.({ plan: "premium" }) ?? false) : false;
+  const pathname = usePathname();
 
   function isActive(href: string, exact?: boolean) {
     if (exact) return pathname === href;
     return pathname.startsWith(href);
   }
 
-  function handleNavClick(e: React.MouseEvent, locked?: boolean) {
-    if (locked) {
-      e.preventDefault();
-      router.push("/dashboard/billing");
-    }
+  function handleNavClick() {
     onClose?.();
   }
 
@@ -107,14 +98,13 @@ export default function Sidebar({
           <div key={section.label}>
             <p className="px-3 mb-1 text-[10px] font-semibold text-white/25 uppercase tracking-widest">{section.label}</p>
             <div className="space-y-0.5">
-              {section.items.map(({ href, label, icon: Icon, exact, premium }) => {
+              {section.items.map(({ href, label, icon: Icon, exact, comingSoon }) => {
                 const active = isActive(href, exact);
-                const locked = premium && !isPremium && isLoaded;
                 return (
                   <Link
                     key={href}
                     href={href}
-                    onClick={(e) => handleNavClick(e, locked)}
+                    onClick={handleNavClick}
                     className={`group flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all ${
                       active
                         ? "bg-white text-black"
@@ -123,7 +113,7 @@ export default function Sidebar({
                   >
                     <Icon className="w-4 h-4 shrink-0" />
                     <span className="flex-1">{label}</span>
-                    {locked && <Lock className="w-3 h-3 text-white/25 shrink-0" />}
+                    {comingSoon && <Lock className="w-3 h-3 text-white/25 shrink-0" />}
                   </Link>
                 );
               })}
@@ -135,28 +125,8 @@ export default function Sidebar({
       {/* Bottom */}
       <div className="px-3 pb-5 border-t border-white/8 pt-4 space-y-0.5 shrink-0">
         <Link
-          href="/dashboard/billing"
-          onClick={(e) => handleNavClick(e)}
-          className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all ${
-            isActive("/dashboard/billing") ? "bg-white text-black" : "text-white/55 hover:text-white hover:bg-white/8"
-          }`}
-        >
-          <CreditCard className="w-4 h-4 shrink-0" />
-          <span className="flex-1">Billing</span>
-          {isLoaded && (
-            <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded-full ${
-              isPremium
-                ? "bg-emerald-500/20 text-emerald-400 border border-emerald-400/30"
-                : "bg-white/10 text-white/40"
-            }`}>
-              {isPremium ? "PRO" : "FREE"}
-            </span>
-          )}
-        </Link>
-
-        <Link
           href="/dashboard/settings"
-          onClick={(e) => handleNavClick(e)}
+          onClick={handleNavClick}
           className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all ${
             isActive("/dashboard/settings") ? "bg-white text-black" : "text-white/55 hover:text-white hover:bg-white/8"
           }`}
