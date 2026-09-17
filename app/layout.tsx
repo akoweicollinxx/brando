@@ -33,7 +33,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <ThemeProvider>
-          <ClerkProvider signInUrl="/sign-in" signUpUrl="/sign-up" proxyUrl="/__clerk">
+          <ClerkProvider signInUrl="/sign-in" signUpUrl="/sign-up">
             <header className="fixed top-0 inset-x-0 z-50 flex items-center justify-between px-6 py-4 bg-white/80 dark:bg-[#0d0d0d]/80 backdrop-blur border-b border-gray-100 dark:border-white/[0.08]">
               <a href="/" className="text-lg font-bold tracking-tight text-gray-900 dark:text-white">
                 brando
